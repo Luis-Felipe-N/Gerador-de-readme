@@ -1,0 +1,61 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 6rem;
+    padding: 0 5%;
+
+    .btn_readme {
+        padding: .8rem 1.5rem;
+        border: 0;
+        border-radius: 5px;
+        background-color: var(--color-purple-500);
+        
+    }
+
+    .btns {
+        display: flex;
+        align-items: center;
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            img {
+                width: 2rem;
+                border-radius: 100%;
+            }
+
+            strong {
+                font-size: .8rem;
+            }
+            margin-right: 2rem;
+        }
+    }
+
+    .search {
+        background-color: #322659;
+        display: flex;
+        // align-items: center;
+        border-radius: 2rem;
+        overflow: hidden;
+        width: 100%;
+        max-width: 500px;
+
+        button, input {
+            background-color: transparent;
+            border: 0;
+        }
+
+        button{
+            line-height: 0;
+            width: 4rem;
+        }
+
+        input {
+            height: 3rem;
+            width: 100%;
+            padding: 0 1rem;
+        }
+    }
+}

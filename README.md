@@ -2,4 +2,4 @@
 
 Cansado de criar readme? Eu também.
 
-![cover](public/cover.png)# Gerador-de-readme
+![cover](public/cover.png)
