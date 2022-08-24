@@ -1,0 +1,21 @@
+.card {
+    background-color: green;
+    position: relative;
+    height: 15rem;
+    width: 20rem;
+    border-radius: 10px;
+    overflow: hidden;
+
+    figcaption {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        background: linear-gradient(to top, var(--color-purple-800), rgba(29, 22, 53, 0.541), rgba(29, 22, 53, 0.02));
+        height: 4rem;
+        padding: 1rem 1rem .5rem;
+    }
+}
+
+.home {
+    padding: 0 5%;
+}

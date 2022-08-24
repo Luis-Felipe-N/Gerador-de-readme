@@ -10,6 +10,9 @@
         border: 0;
         border-radius: 5px;
         background-color: var(--color-purple-500);
+        display: flex;
+        gap: .5rem;
+        align-items: center;
         
     }
 
@@ -34,7 +37,7 @@
     }
 
     .search {
-        background-color: #322659;
+        background-color: var(--color-purple-700);
         display: flex;
         // align-items: center;
         border-radius: 2rem;

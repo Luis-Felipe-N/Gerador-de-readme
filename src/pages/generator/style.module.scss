@@ -1,0 +1,40 @@
+.generator {
+
+    padding: 0 5%;
+    .githubLink {
+        padding: 2rem;
+        border-radius: 10px;
+        border: 1px solid var(--color-purple-500);
+        background-color: var(--color-purple-700);
+
+        > div {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        input {
+            display: block;
+            margin-top: 1.5rem;
+            padding:  1rem;
+            width: 100%;
+            border-radius: 10px;
+            border: 0;
+            background-color: var(--color-purple-600);
+        }
+        
+        button {
+            border-radius: 10px;
+            border: 1px solid #9F7AEA;
+            padding: 1rem;
+            background-color: transparent;
+            color: #9F7AEA;
+        }
+    }
+
+    .errorMessage {
+        display: flex;
+        gap: .5rem;
+        color: var(--color-red);
+        margin-top: 1rem;
+    }
+}
