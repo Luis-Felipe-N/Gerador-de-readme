@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 
 import style from './style.module.scss'
 import { api } from "../../service/api"
+import ITemplateProps, { createReadme } from "../../Templates/generatorReadme"
 
 
 export default function Index() {
@@ -9,9 +10,6 @@ export default function Index() {
     const [ errorlinkRepo, setErrorlinkRepo ] = useState('')
     const [ repo, setRepo ] = useState('')
 
-    useEffect(() => {
-
-    }, [])
 
     function handleChangeLinkRepoInput(value: string) {
         setErrorlinkRepo('')
@@ -26,10 +24,24 @@ export default function Index() {
             const nameUser = linkRepoFormated.pop()
 
             try {
-                const response = await api.get(`repos/${nameUser}/${nameRepo}`)
-                console.log(response.data)
+                const response = await api.get(`https://api.github.com/repos/${nameUser}/${nameRepo}`)
+                const userName = await api.get(response.data.owner.url)
+                const languages = await api.get(response.data.languages_url)
+
+                const templateProps: ITemplateProps = {
+                    cover: '',
+                    repo: {
+                        name: response.data.name,
+                        description: response.data.description,
+                        userName: userName.data.name,
+                        cloneUrl: response.data.cloneUrl,
+                        languages: Object.keys(languages.data)
+                    }
+                }
+
+                console.log(createReadme(templateProps))
             } catch (err) {
-                console.log(err)
+                setErrorlinkRepo('Repo não encontrado')
             }
         } else {
             setErrorlinkRepo('Insira um link de repositorio válido')
@@ -53,6 +65,7 @@ export default function Index() {
                         placeholder="Link do github"
                         onChange={({target}) => handleChangeLinkRepoInput(target.value)}
                         value={linkRepo}
+                        className={errorlinkRepo ? style.inputError : ''}
                         />
 
                     <button type="submit">Continuar</button>
